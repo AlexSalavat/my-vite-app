@@ -1,22 +1,21 @@
 import React from "react";
-import "../../styles/InfoGrid.css";
-import BackButton from "../BackButton";
 import { useful } from "../../data/useful";
+import "./../../styles/NewsList.css";
 
-const UsefulGrid = () => (
-  <div>
-    <BackButton />
-    <h2 className="info-title-main">Полезное</h2>
-    <div className="info-grid">
-      {useful.map((item, idx) => (
-        <div className="info-card" key={idx}>
-          <img src={item.image} alt={item.title} className="info-card-img" />
-          <div className="info-card-title">{item.title}</div>
-          <div className="info-card-content">{item.content}</div>
+export default function UsefulGrid() {
+  return (
+    <div className="news-grid">
+      {useful.map((item) => (
+        <div key={item.id} className="news-card">
+          <div className="news-img-wrap">
+            <img src={item.image} alt={item.title} className="news-img" />
+          </div>
+          <div className="news-info">
+            <h3 className="news-title">{item.title}</h3>
+            <p className="news-content">{item.description}</p>
+          </div>
         </div>
       ))}
     </div>
-  </div>
-);
-
-export default UsefulGrid;
+  );
+}

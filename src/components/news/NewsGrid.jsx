@@ -1,26 +1,29 @@
 import React from "react";
 import { news } from "../../data/news";
-import "../../styles/NewsGrid.css";
-import BackButton from "../BackButton";
+import "./../../styles/NewsList.css";
 
-const NewsGrid = () => (
-  <div>
-    <BackButton />
-    <h2 className="news-title-main">Новости</h2>
-    <div className="news-cards-grid">
-      {news.map(item => (
-        <div className="news-card-simple" key={item.id}>
-          <div className="news-card-imgwrap">
-            <img src={item.image} alt={item.title} className="news-card-img" />
+export default function NewsGrid() {
+  return (
+    <div className="news-grid">
+      {news.map((item) => (
+        <div
+          key={item.id}
+          className={`news-card${item.isPrivate ? " locked" : ""}`}
+        >
+          <div className="news-img-wrap">
+            <img src={item.image} alt={item.title} className="news-img" />
+            {item.isPrivate && (
+              <span className="news-lock" title="Доступ только по подписке">
+                <span role="img" aria-label="locked">🔒</span>
+              </span>
+            )}
           </div>
-          <div className="news-card-texts">
-            <div className="news-card-title">{item.title}</div>
-            <div className="news-card-content">{item.content}</div>
+          <div className="news-info">
+            <h3 className="news-title">{item.title}</h3>
+            <p className="news-content">{item.description}</p>
           </div>
         </div>
       ))}
     </div>
-  </div>
-);
-
-export default NewsGrid;
+  );
+}

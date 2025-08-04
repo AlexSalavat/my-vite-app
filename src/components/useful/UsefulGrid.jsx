@@ -4,15 +4,15 @@ import "./../../styles/NewsList.css";
 
 export default function UsefulGrid() {
   return (
-    <div className="news-grid">
+    <div className="cards-grid">
       {useful.map((item) => (
-        <div key={item.id} className="news-card">
-          <div className="news-img-wrap">
-            <img src={item.image} alt={item.title} className="news-img" />
+        <div key={item.id} className="card-item">
+          <div className="card-img-wrap">
+            <img src={item.image} alt={item.title} className="card-img" />
           </div>
-          <div className="news-info">
-            <h3 className="news-title">{item.title}</h3>
-            <p className="news-content">{item.description}</p>
+          <div className="card-info">
+            <h3 className="card-title">{item.title}</h3>
+            <p className="card-content">{item.description}</p>
           </div>
         </div>
       ))}

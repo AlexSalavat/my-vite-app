@@ -4,23 +4,23 @@ import "./../../styles/NewsList.css";
 
 export default function NewsGrid() {
   return (
-    <div className="news-grid">
+    <div className="cards-grid">
       {news.map((item) => (
         <div
           key={item.id}
-          className={`news-card${item.isPrivate ? " locked" : ""}`}
+          className={`card-item${item.isPrivate ? " locked" : ""}`}
         >
-          <div className="news-img-wrap">
-            <img src={item.image} alt={item.title} className="news-img" />
+          <div className="card-img-wrap">
+            <img src={item.image} alt={item.title} className="card-img" />
             {item.isPrivate && (
-              <span className="news-lock" title="Доступ только по подписке">
+              <span className="card-lock" title="Доступ только по подписке">
                 <span role="img" aria-label="locked">🔒</span>
               </span>
             )}
           </div>
-          <div className="news-info">
-            <h3 className="news-title">{item.title}</h3>
-            <p className="news-content">{item.description}</p>
+          <div className="card-info">
+            <h3 className="card-title">{item.title}</h3>
+            <p className="card-content">{item.description}</p>
           </div>
         </div>
       ))}

@@ -13,9 +13,12 @@ export default function NewsGrid() {
           <div className="card-img-wrap">
             <img src={item.image} alt={item.title} className="card-img" />
             {item.isPrivate && (
-              <span className="card-lock" title="Доступ только по подписке">
-                <span role="img" aria-label="locked">🔒</span>
-              </span>
+              <>
+                <div className="card-img-overlay" />
+                <span className="card-lock" title="Доступ только по подписке">
+                  <span role="img" aria-label="locked">🔒</span>
+                </span>
+              </>
             )}
           </div>
           <div className="card-info">

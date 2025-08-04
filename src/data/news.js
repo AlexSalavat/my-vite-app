@@ -4,14 +4,14 @@ export const news = [
     title: "Тренды и новинки месяца",
     description: "Самые важные изменения, свежие препараты, технологии и тенденции рынка инъекций.",
     isPrivate: false,
-    image: "/images/news/trends.webp"
+    image: "/images/news/international.webp"
   },
   {
     id: "insights",
     title: "Инсайты с международных форумов",
     description: "Практические открытия, уникальные протоколы, кейсы и опыты коллег из Кореи и Европы.",
     isPrivate: false,
-    image: "/images/news/insights.webp"
+    image: "/images/news/eco-genetic.webp"
   },
   {
     id: "events",
@@ -25,6 +25,6 @@ export const news = [
     title: "PRO-инсайт недели",
     description: "Эксклюзивный разбор: кейсы, контакты, схемы и секретные методики для профессионалов. Доступ только по подписке.",
     isPrivate: true,
-    image: "/images/news/pro-insight.webp"
+    image: "/images/news/new-products.webp"
   }
 ];

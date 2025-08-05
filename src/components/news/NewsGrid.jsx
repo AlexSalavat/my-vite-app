@@ -3,7 +3,6 @@ import { news } from "../../data/news";
 import "./../../styles/NewsList.css";
 
 function shortDesc(desc) {
-  // 60 символов, без обрезки слова, с точкой в конце
   if (desc.length <= 60) {
     return desc.trim().endsWith('.') ? desc.trim() : desc.trim() + '.';
   }

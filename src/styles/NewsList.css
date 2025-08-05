@@ -1,120 +1,123 @@
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 32px;
-  margin: 36px 0;
-  padding: 0 10px;
-}
-
-.card-item {
-  background: none;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px 0 rgba(20,30,40,0.12);
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.2s, transform 0.17s;
-  position: relative;
-  min-width: 0;
-  border: 1.8px solid transparent;
-}
-
-.card-item:hover:not(.locked) {
-  box-shadow: 0 8px 32px 0 rgba(49,196,141,0.18);
-  border: 1.8px solid #2fd5a6;
-  transform: translateY(-3px) scale(1.018);
-}
-
-.card-img-wrap {
+.hscroll-wrapper {
+  overflow-x: auto;
   width: 100%;
-  aspect-ratio: 1.8 / 1;
-  background: #131518;
-  position: relative;
-  overflow: hidden;
+  padding-bottom: 7px;
+  margin-bottom: 0;
 }
-
-.card-img {
+.hscroll-list {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  min-width: 100vw;
+  padding: 10px 0 14px 0;
+}
+.hscroll-card {
+  min-width: 140px;
+  max-width: 200px;
+  width: 25vw;
+  height: 25vw;
+  max-height: 200px;
+  min-height: 140px;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #191b1d;
+  box-shadow: 0 4px 32px 0 rgba(20,30,40,0.16);
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.19s, transform 0.13s;
+}
+.hscroll-card:hover:not(.locked) {
+  box-shadow: 0 7px 38px 0 #3be4f558;
+  transform: translateY(-3px) scale(1.035);
+}
+.hscroll-card-img-wrap {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: filter 0.22s, opacity 0.21s;
+  background: #232a2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-
-.card-img-overlay {
+.hscroll-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.hscroll-card-lock {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg,rgba(34,35,41,0.82) 60%,rgba(44,187,126,0.22));
+  top: 12px;
+  right: 12px;
+  font-size: 2.2em;
+  color: #31c48d;
+  background: rgba(20,30,40,0.91);
+  border-radius: 50%;
+  padding: 5px 10px 5px 7px;
   z-index: 2;
   pointer-events: none;
 }
 
-.card-lock {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  font-size: 2em;
-  color: #31c48d;
-  background: rgba(24,26,31,0.93);
-  border-radius: 50%;
-  padding: 7px 15px 7px 12px;
-  z-index: 3;
-  box-shadow: 0 3px 14px #1dbf7e33;
+.hscroll-card.locked .hscroll-card-img {
+  filter: grayscale(0.9) blur(1.4px) brightness(0.78);
+  opacity: 0.84;
+}
+.hscroll-card.locked {
+  border: 2px solid #31c48d44;
   pointer-events: none;
 }
 
-.card-info {
-  background: #202226;
-  padding: 22px 18px 20px 18px;
-  border-radius: 0 0 18px 18px;
-  box-shadow: 0 2px 13px 0 rgba(36,255,164,0.06);
+/* Подписи под карточками */
+.hscroll-caption-list {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  padding: 6px 0 22px 0;
+  margin: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+.hscroll-caption {
+  min-width: 140px;
+  max-width: 200px;
+  width: 25vw;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-height: 122px;
+  padding-left: 2px;
 }
-
-.card-title {
+.hscroll-caption-title {
   color: #eafff2;
-  font-size: 1.13rem;
+  font-size: 1.04rem;
   font-weight: 800;
-  margin: 0 0 11px 0;
-  line-height: 1.23;
+  margin: 2px 0 3px 0;
+  line-height: 1.21;
   letter-spacing: 0.01em;
-  text-shadow: 0 2px 10px #1de29a13;
 }
-
-.card-content {
+.hscroll-caption-desc {
   color: #b6ffd6;
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   font-weight: 500;
-  line-height: 1.24;
-  text-shadow: 0 1px 7px #1a3b3d08;
-}
-
-.card-item.locked .card-img {
-  filter: grayscale(0.87) blur(1.5px) brightness(0.72);
-  opacity: 0.88;
-}
-
-.card-item.locked .card-info {
-  opacity: 0.68;
-  filter: blur(0.5px);
-}
-
-.card-item.locked {
-  pointer-events: none;
-  border: 1.8px solid #2fd5a65b;
+  line-height: 1.21;
 }
 
 @media (max-width: 600px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 0;
+  .hscroll-card,
+  .hscroll-caption {
+    min-width: 128px;
+    max-width: 170px;
+    width: 46vw;
+    height: 46vw;
+    max-height: 170px;
+    min-height: 128px;
   }
-  .card-info {
-    padding: 15px 10px 11px 10px;
-    min-height: 90px;
+  .hscroll-list,
+  .hscroll-caption-list {
+    gap: 14px;
   }
 }

@@ -1,36 +1,25 @@
 import React from "react";
 import { news } from "../../data/news";
-import "./../../styles/NewsList.css";
-
-function shortDesc(desc) {
-  if (desc.length <= 60) {
-    return desc.trim().endsWith('.') ? desc.trim() : desc.trim() + '.';
-  }
-  let trimmed = desc.slice(0, 57);
-  if (trimmed.lastIndexOf(' ') > 35) trimmed = trimmed.slice(0, trimmed.lastIndexOf(' '));
-  trimmed = trimmed.trim();
-  if (!trimmed.endsWith('.')) trimmed += '.';
-  return trimmed;
-}
+import "../../styles/NewsList.css";
 
 export default function NewsGrid() {
   return (
-    <div className="square-cards-grid">
+    <div className="news-cards-grid">
       {news.map((item) => (
-        <div key={item.id} className="square-card-outer">
-          <div className={`square-card${item.isPrivate ? " locked" : ""}`}>
-            <div className="square-card-img-wrap">
-              <img src={item.image} alt={item.title} className="square-card-img" />
+        <div key={item.id} className="news-card-outer">
+          <div className={`news-card${item.isPrivate ? " locked" : ""}`}>
+            <div className="news-card-img-wrap">
+              <img src={item.image} alt={item.title} className="news-card-img" />
               {item.isPrivate && (
-                <span className="square-card-lock" title="Доступ только по подписке">
+                <span className="news-card-lock" title="Доступ только по подписке">
                   <span role="img" aria-label="locked">🔒</span>
                 </span>
               )}
             </div>
           </div>
-          <div className="square-card-text">
-            <div className="square-card-title">{item.title}</div>
-            <div className="square-card-desc">{shortDesc(item.description)}</div>
+          <div className="news-card-text">
+            <div className="news-card-title">{item.title}</div>
+            <div className="news-card-desc">{item.description}</div>
           </div>
         </div>
       ))}

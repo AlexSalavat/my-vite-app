@@ -25,9 +25,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;   /* Меньше расстояние между карточкой и текстом */
+  margin-bottom: 8px;
   transition: box-shadow 0.18s, border 0.16s;
   border: 2px solid transparent;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .category-card-link:hover .category-card-img-wrap {
@@ -48,48 +50,43 @@
   display: block;
 }
 
-.category-card-text {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  padding: 0;
-  margin-top: 0;
-}
-
+/* Текст — строго фиксированный, всегда с одинаковым отступом, маленький и аккуратный */
 .category-card-title {
-  font-size: 1.18rem;
-  font-weight: 700;
-  text-align: center;
-  color: #eafff2;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-  max-width: 96%;
   margin: 0;
-  padding: 0;
-  opacity: 0.99;
-  text-shadow: 0 1px 10px #31ffd412;
-  border-radius: 6px;
-  background: none;
+  margin-top: 5px;
+  padding: 0 2px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #c6ffe6;
+  text-align: center;
+  max-width: 225px;
+  line-height: 1.18;
+  min-height: 2.2em; /* всегда одинаковая высота под две строки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.95;
   word-break: break-word;
   white-space: pre-line;
+  background: none;
+  border-radius: 5px;
+  text-shadow: 0 1px 8px #30ffe144;
 }
 
-/* Адаптив */
 @media (max-width: 1100px) {
   .category-card-link,
   .category-card-img-wrap {
     width: 33vw;
     max-width: 45vw;
     height: 33vw;
-    min-width: 160px;
-    min-height: 160px;
+    min-width: 145px;
+    min-height: 145px;
     border-radius: 18px;
   }
   .category-card-title {
-    font-size: 1.01rem;
+    font-size: 0.91rem;
     max-width: 90vw;
+    min-height: 2.2em;
   }
 }
 @media (max-width: 700px) {
@@ -98,10 +95,10 @@
     width: 46vw;
     max-width: 98vw;
     height: 46vw;
-    min-width: 120px;
-    min-height: 120px;
+    min-width: 110px;
+    min-height: 110px;
   }
   .category-card-title {
-    font-size: 0.96rem;
+    font-size: 0.89rem;
   }
 }

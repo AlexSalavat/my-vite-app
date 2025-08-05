@@ -29,8 +29,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 0.18s, border 0.16s;
   border: 2px solid transparent;
+  transition: box-shadow 0.18s, border 0.16s;
 }
 
 .news-card-img {
@@ -59,7 +59,6 @@
   text-shadow: 0 1px 8px #30ffe144;
 }
 
-/* Адаптив */
 @media (max-width: 1100px) {
   .news-cards-grid {
     gap: 24px 10px;

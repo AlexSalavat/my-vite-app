@@ -26,17 +26,13 @@ const CategoryView = () => {
       <h2>Категории</h2>
       <div className="category-cards-grid">
         {categories.map(cat => (
-          <div
+          <CategoryCard
             key={cat.key}
-            style={{ width: "100%" }}
-            onClick={() => navigate(`/catalog/${cat.key}`)}
-          >
-            <CategoryCard
-              name={cat.name}
-              image={cat.image}
-              to={`/catalog/${cat.key}`}
-            />
-          </div>
+            name={cat.name}
+            image={cat.image}
+            to={`/catalog/${cat.key}`}
+            active={false}  // На главной нет выделения
+          />
         ))}
       </div>
     </div>

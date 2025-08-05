@@ -22,7 +22,7 @@ const CategoryView = () => {
     <div className="category-view">
       <h2>Категории</h2>
       <div className="category-cards-grid">
-        {categories.map(cat => (
+        {categories.slice(0, 10).map(cat => (
           <CategoryCard
             key={cat.key}
             name={cat.name}

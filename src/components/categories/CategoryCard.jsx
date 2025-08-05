@@ -7,7 +7,9 @@ const CategoryCard = ({ name, image, to, active }) => (
     <div className="category-card-img-wrap">
       <img src={image} alt={name} className="category-card-img" />
     </div>
-    <div className="category-card-title">{name}</div>
+    <div className="category-card-text">
+      <span className="category-card-title">{name}</span>
+    </div>
   </Link>
 );
 

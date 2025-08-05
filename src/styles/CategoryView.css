@@ -1,62 +1,59 @@
 .category-view {
   width: 100%;
-  max-width: 1160px;
+  max-width: 1350px;
   margin: 0 auto;
-  padding: 30px 10px 0 10px;
+  padding: 32px 10px 0 10px;
 }
 
 .category-view h2 {
-  font-size: 1.32rem;
+  font-size: 1.38rem;
   font-weight: 700;
   color: #eafff2;
-  margin-bottom: 24px;
+  margin-bottom: 33px;
   letter-spacing: 0.01em;
   text-align: center;
 }
 
-/* 2 ряда по 5 карточек (10 шт) */
+/* Четкая сетка: 5 колонок, 2 ряда */
 .category-cards-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 28px 18px;
+  gap: 38px 26px;
   justify-items: center;
   align-items: flex-start;
   margin: 0 auto;
   padding: 0;
   width: 100%;
-  max-width: 1000px;
-  min-height: 410px;
+  max-width: 1200px;
+  min-height: 510px;
   box-sizing: border-box;
 }
 
-/* адаптив */
 @media (max-width: 1100px) {
   .category-cards-grid {
-    max-width: 95vw;
-    gap: 18px 7px;
+    max-width: 97vw;
+    gap: 22px 7px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .category-cards-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: none;
-    gap: 19px 4vw;
     min-height: 0;
+    gap: 13px 6px;
   }
 }
 @media (max-width: 600px) {
   .category-view {
-    padding: 13px 1vw 0 1vw;
+    padding: 11px 1vw 0 1vw;
   }
   .category-cards-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 10px 2vw;
-    margin-top: 13px;
+    gap: 7px 1vw;
     min-height: 0;
   }
   .category-view h2 {
-    font-size: 1.05rem;
-    margin-bottom: 13px;
+    font-size: 1.02rem;
+    margin-bottom: 10px;
   }
 }

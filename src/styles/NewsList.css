@@ -1,23 +1,27 @@
 .square-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-  gap: 26px;
+  gap: 32px;
   margin: 38px 0;
   padding: 0 6px;
+}
+
+.square-card-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: none;
 }
 
 .square-card {
   background: #191b1e;
   border-radius: 18px;
   box-shadow: 0 4px 22px 0 rgba(40, 255, 164, 0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
   overflow: hidden;
   position: relative;
-  transition: box-shadow 0.18s, transform 0.16s;
   min-width: 0;
   border: 1.8px solid transparent;
+  transition: box-shadow 0.18s, transform 0.16s, border 0.12s;
 }
 
 .square-card:hover:not(.locked) {
@@ -55,11 +59,19 @@
   pointer-events: none;
 }
 
-.square-card-info {
-  background: #202328;
-  padding: 17px 13px 13px 13px;
-  border-radius: 0 0 16px 16px;
-  min-height: 90px;
+.square-card.locked .square-card-img {
+  filter: grayscale(0.88) blur(1.2px) brightness(0.75);
+  opacity: 0.86;
+}
+.square-card.locked {
+  pointer-events: none;
+  border: 1.8px solid #31c48d44;
+}
+
+/* === ВНИМАНИЕ: текст ОТДЕЛЬНО от карточки === */
+.square-card-text {
+  background: none;
+  padding: 16px 2px 0 2px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -71,6 +83,7 @@
   font-weight: 800;
   margin-bottom: 7px;
   line-height: 1.23;
+  text-shadow: 0 2px 10px #1de29a13;
 }
 
 .square-card-desc {
@@ -78,29 +91,16 @@
   font-size: 0.97rem;
   font-weight: 500;
   line-height: 1.19;
-}
-
-.square-card.locked .square-card-img {
-  filter: grayscale(0.88) blur(1.2px) brightness(0.75);
-  opacity: 0.86;
-}
-.square-card.locked .square-card-info {
-  opacity: 0.69;
-  filter: blur(0.4px);
-}
-.square-card.locked {
-  pointer-events: none;
-  border: 1.8px solid #31c48d44;
+  text-shadow: 0 1px 7px #1a3b3d08;
 }
 
 @media (max-width: 600px) {
   .square-cards-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 16px;
     padding: 0;
   }
-  .square-card-info {
-    padding: 12px 7px 10px 7px;
-    min-height: 65px;
+  .square-card-text {
+    padding: 10px 1px 0 1px;
   }
 }

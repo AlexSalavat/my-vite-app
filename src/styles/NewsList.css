@@ -1,123 +1,106 @@
-.hscroll-wrapper {
-  overflow-x: auto;
-  width: 100%;
-  padding-bottom: 7px;
-  margin-bottom: 0;
+.square-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 26px;
+  margin: 38px 0;
+  padding: 0 6px;
 }
-.hscroll-list {
+
+.square-card {
+  background: #191b1e;
+  border-radius: 18px;
+  box-shadow: 0 4px 22px 0 rgba(40, 255, 164, 0.08);
   display: flex;
-  flex-direction: row;
-  gap: 28px;
-  min-width: 100vw;
-  padding: 10px 0 14px 0;
-}
-.hscroll-card {
-  min-width: 140px;
-  max-width: 200px;
-  width: 25vw;
-  height: 25vw;
-  max-height: 200px;
-  min-height: 140px;
-  aspect-ratio: 1 / 1;
-  border-radius: 16px;
+  flex-direction: column;
+  align-items: stretch;
   overflow: hidden;
-  background: #191b1d;
-  box-shadow: 0 4px 32px 0 rgba(20,30,40,0.16);
   position: relative;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: box-shadow 0.19s, transform 0.13s;
+  transition: box-shadow 0.18s, transform 0.16s;
+  min-width: 0;
+  border: 1.8px solid transparent;
 }
-.hscroll-card:hover:not(.locked) {
-  box-shadow: 0 7px 38px 0 #3be4f558;
-  transform: translateY(-3px) scale(1.035);
+
+.square-card:hover:not(.locked) {
+  box-shadow: 0 8px 34px 0 #3be4f558;
+  border: 1.8px solid #2fd5a6;
+  transform: translateY(-4px) scale(1.024);
 }
-.hscroll-card-img-wrap {
+
+.square-card-img-wrap {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
   background: #232a2d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  overflow: hidden;
 }
-.hscroll-card-img {
+
+.square-card-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
+  transition: filter 0.19s;
 }
-.hscroll-card-lock {
+
+.square-card-lock {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  font-size: 2.2em;
+  top: 13px;
+  right: 13px;
+  font-size: 1.65em;
   color: #31c48d;
-  background: rgba(20,30,40,0.91);
-  border-radius: 50%;
-  padding: 5px 10px 5px 7px;
+  background: rgba(20,30,40,0.94);
+  border-radius: 10px;
+  padding: 2px 8px 2px 7px;
   z-index: 2;
   pointer-events: none;
 }
 
-.hscroll-card.locked .hscroll-card-img {
-  filter: grayscale(0.9) blur(1.4px) brightness(0.78);
-  opacity: 0.84;
-}
-.hscroll-card.locked {
-  border: 2px solid #31c48d44;
-  pointer-events: none;
-}
-
-/* Подписи под карточками */
-.hscroll-caption-list {
-  display: flex;
-  flex-direction: row;
-  gap: 28px;
-  padding: 6px 0 22px 0;
-  margin: 0;
-  overflow-x: auto;
-  width: 100%;
-}
-.hscroll-caption {
-  min-width: 140px;
-  max-width: 200px;
-  width: 25vw;
-  flex-shrink: 0;
+.square-card-info {
+  background: #202328;
+  padding: 17px 13px 13px 13px;
+  border-radius: 0 0 16px 16px;
+  min-height: 90px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-left: 2px;
 }
-.hscroll-caption-title {
+
+.square-card-title {
   color: #eafff2;
-  font-size: 1.04rem;
+  font-size: 1.07rem;
   font-weight: 800;
-  margin: 2px 0 3px 0;
-  line-height: 1.21;
-  letter-spacing: 0.01em;
+  margin-bottom: 7px;
+  line-height: 1.23;
 }
-.hscroll-caption-desc {
+
+.square-card-desc {
   color: #b6ffd6;
-  font-size: 0.98rem;
+  font-size: 0.97rem;
   font-weight: 500;
-  line-height: 1.21;
+  line-height: 1.19;
+}
+
+.square-card.locked .square-card-img {
+  filter: grayscale(0.88) blur(1.2px) brightness(0.75);
+  opacity: 0.86;
+}
+.square-card.locked .square-card-info {
+  opacity: 0.69;
+  filter: blur(0.4px);
+}
+.square-card.locked {
+  pointer-events: none;
+  border: 1.8px solid #31c48d44;
 }
 
 @media (max-width: 600px) {
-  .hscroll-card,
-  .hscroll-caption {
-    min-width: 128px;
-    max-width: 170px;
-    width: 46vw;
-    height: 46vw;
-    max-height: 170px;
-    min-height: 128px;
+  .square-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0;
   }
-  .hscroll-list,
-  .hscroll-caption-list {
-    gap: 14px;
+  .square-card-info {
+    padding: 12px 7px 10px 7px;
+    min-height: 65px;
   }
 }

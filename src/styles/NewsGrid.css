@@ -1,8 +1,8 @@
 .news-cards-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 250px);
   gap: 38px 26px;
-  justify-items: center;
+  justify-content: center;       /* Центрирует сетку! */
   align-items: flex-start;
   margin: 0 auto;
   padding: 0;
@@ -59,42 +59,43 @@
   text-shadow: 0 1px 8px #30ffe144;
 }
 
-@media (max-width: 1100px) {
+/* Адаптив — только 2 в строку на мобиле! */
+@media (max-width: 1300px) {
   .news-cards-grid {
-    gap: 24px 10px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 250px);
   }
-  .news-card, .news-card-img-wrap {
-    width: 33vw;
-    max-width: 45vw;
-    height: 33vw;
-    min-width: 145px;
-    min-height: 145px;
+}
+@media (max-width: 1050px) {
+  .news-cards-grid {
+    grid-template-columns: repeat(3, 250px);
   }
 }
 @media (max-width: 800px) {
   .news-cards-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 13px 6px;
+    gap: 14px 8px;
   }
   .news-card, .news-card-img-wrap {
-    width: 46vw;
-    max-width: 98vw;
-    height: 46vw;
-    min-width: 110px;
-    min-height: 110px;
+    width: 44vw;
+    height: 44vw;
+    min-width: 120px;
+    min-height: 120px;
+    max-width: 99vw;
+    max-height: 99vw;
   }
 }
 @media (max-width: 600px) {
   .news-cards-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 7px 1vw;
+    gap: 8px 1vw;
     min-height: 0;
   }
   .news-card, .news-card-img-wrap {
-    width: 92vw;
-    max-width: 99vw;
+    width: 48vw;
+    height: 48vw;
     min-width: 100px;
     min-height: 100px;
+    max-width: 98vw;
+    max-height: 98vw;
   }
 }

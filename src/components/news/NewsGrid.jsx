@@ -1,6 +1,6 @@
 import React from "react";
 import { news } from "../../data/news";
-import "../../styles/NewsGrid.css"; // Именно отдельный файл!
+import "../../styles/NewsGrid.css";
 
 export default function NewsGrid() {
   return (
